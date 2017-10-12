@@ -1,5 +1,15 @@
-﻿
+﻿@font-face {
+  font-family: 'UniversLTStd-Bold';
+  src: url('webfonts/UniversLTStd-Bold.eot') format('embedded-opentype'), url('webfonts/UniversLTStd-Bold.woff2') format('woff2'), url('webfonts/UniversLTStd-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'UniversLT-Light';
+  src: url('webfonts/UniversLT-Light.woff') format('woff'), url('webfonts/UniversLT-Light.woff2') format('woff2'), url('webfonts/UniversLT-Light.eot') format('embedded-opentype');
+}
+
 body {
+  /*font-family: UniversLTStd-Bold;*/
   padding: 0;
 }
 

@@ -24,7 +24,7 @@
     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
   <!-- Add your site or application content here -->
-  <div class="header">
+  <div class="header" ng-controller="headercontroller">
     <div class="navbar navbar-default" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -36,16 +36,17 @@
           </button>
 
           <a class="navbar-brand" href="/">
-            <img class="img-responsive" width="200" height="200" ng-src="images/Arysta-LifeScience-Logo-wTagline.png" />
+            <img class="img-responsive" width="170" height="100" ng-src="{{API_PATH_MEDIA}}{{header.image}}" style="padding:10px 5px 10px 5px"/>
           </a>
+          <br /><br /><br /><br /><br class="hidden-lg" />
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a ui-sref="quinessomos"><span style="font-size:15px; font-weight:600;">QUIÉNES SOMOS</span></a></li>
-            <li><a ui-sref="productos"><span style="font-size:15px; font-weight:600;">PRODUCTOS</span></a></li>
-            <li><a ui-sref="pronutiva"><span style="font-size:15px; font-weight:600;">PRONUTIVA</span></a></li>
-            <li><a ui-sref="dondeestamos"><span style="font-size:15px; font-weight:600;">DÓNDE ESTAMOS</span></a></li>
-            <li><a ui-sref="contacto"><span style="font-size:15px; font-weight:600;">CONTACTO</span></a></li>
+            <li><a ui-sref="quinessomos"><span style="font-size:17px; text-transform:uppercase">{{menu.quienessomos}}</span></a></li>
+            <li><a ui-sref="productos"><span style="font-size:17px; text-transform:uppercase">{{menu.productos}}</span></a></li>
+            <li><a ui-sref="pronutiva"><span style="font-size:17px; text-transform:uppercase">{{menu.pronutiva}}</span></a></li>
+            <li><a ui-sref="dondeestamos"><span style="font-size:17px; text-transform:uppercase">{{menu.dondeestamos}}</span></a></li>
+            <li><a ui-sref="contacto"><span style="font-size:17px; text-transform:uppercase">{{menu.contacto}}</span></a></li>
             <li><a href=""><i class="fa fa-facebook" aria-hidden="true" style="color:#003366; font-size:x-large"></i></a></li>
             <li><a href=""><i class="fa fa-twitter" aria-hidden="true" style="color:#003366; font-size:x-large"></i></a></li>
             <li><a href=""><i class="fa fa-youtube" aria-hidden="true" style="color:#003366; font-size:x-large"></i></a></li>
@@ -55,14 +56,14 @@
       </div>
     </div>
   </div>
-  <div class="container-fluid">
+  <div class="container-fluid" style="padding:0">
     <div ui-view></div>
   </div>
-  <div class="container footer">
+  <div class="container footer" ng-controller="headercontroller">
     <div class="col-xs-12" style="padding:0;">
       <div class="col-xs-6">
-        <p style="margin-bottom:0; font-size:14px;"><span>Quiénes somos</span> | <span>Productos</span> | <span>Pronutiva</span> | <span>Dónde estamos</span> | <span>Contacto</span></p>
-        <p style="padding-top:0; font-size:14px;"><span>Copyright  ©2017 Arysta LifeScience Corporation. Todos los derechos reservados.</span></p>
+        <p style="margin-bottom:0; font-size:14px;"><span><a ui-sref="quinessomos" style="color:white">{{menu.quienessomos}}</a></span> | <span><a ui-sref="productos" style="color:white">{{menu.productos}}</a></span> | <span><a ui-sref="pronutiva" style="color:white">{{menu.pronutiva}}</a></span> | <span><a ui-sref="dondeestamos" style="color:white">{{menu.dondeestamos}}</a></span> | <span><a ui-sref="contacto" style="color:white">{{menu.contacto}}</a></span></p>
+        <p style="padding-top:0; font-size:14px;"><span>Copyright  ©2017 Arysta LifeScience Corporation. {{menu.copyright}}.</span></p>
       </div>
       <div class="col-xs-6 text-right">
         <a ng-href="#/"><i class="fa fa-facebook" aria-hidden="true" style="color:#fff; font-size:x-large"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -104,6 +105,7 @@
   <!-- endbuild -->
   <!-- build:js({.tmp,app}) scripts/scripts.js -->
   <script src="scripts/app.js"></script>
+  <script src="scripts/services/contenido.service.js"></script>
   <script src="scripts/controllers/main.js"></script>
   <script src="scripts/controllers/quienessomos.js"></script>
   <script src="scripts/controllers/productos.js"></script>
@@ -111,6 +113,7 @@
   <script src="scripts/controllers/dondeestamos.js"></script>
   <script src="scripts/controllers/contacto.js"></script>
   <script src="scripts/controllers/productosdetail.js"></script>
+  <script src="scripts/controllers/header.js"></script>
   <!-- endbuild -->
 </body>
 </html>

@@ -12,14 +12,16 @@ angular
     .module('frontApp', [
         'ngAnimate',
         'ngAria',
+        'ngMaterial',
         'ngCookies',
         'ngMessages',
         'ngResource',
         'ngSanitize',
-        'ngTouch',
         'ui.router',
         'vAccordion'
     ])
+    .constant('API_PATH', 'http://127.0.0.1:8001/')
+    .constant('API_PATH_MEDIA', 'http://127.0.0.1:8001/media/')
     .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $qProvider, $httpProvider) {
         $urlRouterProvider.otherwise('/');
         $stateProvider

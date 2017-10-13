@@ -8,50 +8,39 @@
  * Controller of the frontApp
  */
 angular.module('frontApp')
-    .controller('ProductosCtrl', ['$scope', function ($scope) {
-        $scope.proteccion = [
-            {
-                id: 1,
-                titulo: 'Herbicidas',
-                img: 'http://placeimg.com/640/640/tech/grayscale'
-            },
-            {
-                id: 1,
-                titulo: 'Fungicidas',
-                img: 'http://placeimg.com/640/640/tech/grayscale'
-            },
-            {
-                id: 1,
-                titulo: 'Insectididas',
-                img: 'http://placeimg.com/640/640/tech/grayscale'
-            },
-            {
-                id: 1,
-                titulo: 'Tratamiento de semillas',
-                img: 'http://placeimg.com/640/640/tech/grayscale'
-            },
-            {
-                id: 1,
-                titulo: 'Coadyuvantes',
-                img: 'http://placeimg.com/640/640/tech/grayscale'
-            }
-        ];
+    .controller('ProductosCtrl', ['$scope', '$sce', 'API_PATH_MEDIA', 'contenidoFactory', '$interpolate', 'API_PATH', '$window', '$stateParams', '$location', function ($scope, $sce, API_PATH_MEDIA, contenidoFactory, $interpolate, API_PATH, $window, $stateParams, $location) {
 
-        $scope.biosoluciones = [
-            {
-                id: 1,
-                titulo: 'Biocontrol',
-                img: 'http://placeimg.com/640/640/nature/grayscale'
-            },
-            {
-                id: 1,
-                titulo: 'Bioestimulantes',
-                img: 'http://placeimg.com/640/640/nature/grayscale'
-            },
-            {
-                id: 1,
-                titulo: 'Fertilización Innovadora',
-                img: 'http://placeimg.com/640/640/nature/grayscale'
+        $scope.API_PATH_MEDIA = API_PATH_MEDIA;
+        $scope.proteccion = [];
+
+        $scope.biosoluciones = [];
+
+        contenidoFactory.ServiceContenido('manager/Productos/', 'GET', {}).then(function (data) {
+            //console.log(data.data);
+            $scope.producto_slider = data.data[0];
+        });
+
+        contenidoFactory.ServiceContenido('catalogos/SubCategoria/', 'GET', '{}').then(function (data) {
+            for (var i = 0; i < data.data.length; i++) {
+                if (data.data[i].id_categoria == 1) {
+
+                    $scope.proteccion.push({
+                        "id": data.data[i].id,
+                        "id_categoria": data.data[i].id_categoria,
+                        "nombre": data.data[i].nombre,
+                        "img": '../images/Protección/' + [i + 1] + '.png'
+                    });
+                }
+                else {
+                    $scope.biosoluciones.push({
+                        "id": data.data[i].id,
+                        "id_categoria": data.data[i].id_categoria,
+                        "nombre": data.data[i].nombre,
+                        "img": '../images/Biosoluciones/' + [i + 1] + '.png'
+                    });
+                }
             }
-        ];
+            //console.log($scope.subcategoriaarr);
+        });
+
     }]);

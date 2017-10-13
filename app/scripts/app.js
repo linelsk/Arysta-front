@@ -56,7 +56,7 @@ angular
                 controller: 'ContactoCtrl'
             })
             .state('productosdetail', {
-                url: '/productosdetail/:id',
+                url: '/productosdetail/:id/:idcatgoria/:titulo',
                 templateUrl: 'views/productosdetail.html',
                 controller: 'ProductosDetailCtrl'
             })

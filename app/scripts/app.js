@@ -20,8 +20,11 @@ angular
         'ui.router',
         'vAccordion'
     ])
-    .constant('API_PATH', 'http://127.0.0.1:8001/')
-    .constant('API_PATH_MEDIA', 'http://127.0.0.1:8001/media/')
+    //.constant('API_PATH', 'http://127.0.0.1:8001/')
+    //.constant('API_PATH_MEDIA', 'http://127.0.0.1:8001/media/')
+    .constant('API_PATH', 'http://165.227.218.198:8001/')
+    .constant('API_PATH_MEDIA', 'http://165.227.218.198:8001/media/')
+//165.227.218.198
     .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $qProvider, $httpProvider) {
         $urlRouterProvider.otherwise('/');
         $stateProvider

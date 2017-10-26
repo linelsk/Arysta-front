@@ -33,7 +33,7 @@ angular.module('frontApp')
                                 '<br />' +
                                 '<br />' +
                                 '<br />' +
-                                '<a href="" class="btn btn-lg btn-primary btn-banner">' + data.data[i].mensaje_boton + '</a>' +
+                                '<a href="quinessomos" class="btn btn-lg btn-primary btn-banner">' + data.data[i].mensaje_boton + '</a>' +
                                 '</div>' +                               
                                 '</div>';
                             break;
@@ -47,7 +47,7 @@ angular.module('frontApp')
                                 '<br />' +
                                 '<br />' +
                                 '<br />' +
-                                '<a href="" class="btn btn-lg btn-primary btn-banner">' + data.data[i].mensaje_boton + '</a>' +
+                                '<a href="quinessomos" class="btn btn-lg btn-primary btn-banner">' + data.data[i].mensaje_boton + '</a>' +
                                 '</div>' +
                                 '</div>';
                     }

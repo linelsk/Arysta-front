@@ -47,9 +47,9 @@
             <li><a ui-sref="pronutiva"><span style="font-size:17px; text-transform:uppercase">{{menu.pronutiva}}</span></a></li>
             <li><a ui-sref="dondeestamos"><span style="font-size:17px; text-transform:uppercase">{{menu.dondeestamos}}</span></a></li>
             <li><a ui-sref="contacto"><span style="font-size:17px; text-transform:uppercase">{{menu.contacto}}</span></a></li>
-            <li><a href=""><i class="fa fa-facebook" aria-hidden="true" style="color:#003366; font-size:x-large"></i></a></li>
-            <li><a href=""><i class="fa fa-twitter" aria-hidden="true" style="color:#003366; font-size:x-large"></i></a></li>
-            <li><a href=""><i class="fa fa-youtube" aria-hidden="true" style="color:#003366; font-size:x-large"></i></a></li>
+            <li><a href="https://www.facebook.com/ArystaArgentina/?ref=br_rs" target="_blank"><i class="fa fa-facebook" aria-hidden="true" style="color:#003366; font-size:x-large"></i></a></li>
+            <li><a href="https://twitter.com/ArystaArgentina" target="_blank"><i class="fa fa-twitter" aria-hidden="true" style="color:#003366; font-size:x-large"></i></a></li>
+            <li><a href="https://www.youtube.com/channel/UCTu0lmAwVs9juKXjj_xVSzA" target="_blank"><i class="fa fa-youtube" aria-hidden="true" style="color:#003366; font-size:x-large"></i></a></li>
           </ul>
         </div>
         <!--/.nav-collapse -->
@@ -57,7 +57,7 @@
     </div>
   </div>
   <div class="container-fluid" style="padding:0">
-    <div ui-view></div>
+    <div ui-view style="padding-top:80px"></div>
   </div>
   <div class="container footer" ng-controller="headercontroller">
     <div class="col-xs-12" style="padding:0;">
@@ -66,9 +66,9 @@
         <p style="padding-top:0; font-size:14px;"><span>Copyright  ©2017 Arysta LifeScience Corporation. {{menu.copyright}}.</span></p>
       </div>
       <div class="col-xs-6 text-right">
-        <a ng-href="#/"><i class="fa fa-facebook" aria-hidden="true" style="color:#fff; font-size:x-large"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a ng-href="#/"><i class="fa fa-twitter" aria-hidden="true" style="color:#fff; font-size:x-large"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a ng-href="#/"><i class="fa fa-youtube" aria-hidden="true" style="color:#fff; font-size:x-large"></i></a>&nbsp;&nbsp;
+        <a ng-href="https://www.facebook.com/ArystaArgentina/?ref=br_rs" target="_blank"><i class="fa fa-facebook" aria-hidden="true" style="color:#fff; font-size:x-large"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a ng-href="https://twitter.com/ArystaArgentina" target="_blank"><i class="fa fa-twitter" aria-hidden="true" style="color:#fff; font-size:x-large"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a ng-href="https://www.youtube.com/channel/UCTu0lmAwVs9juKXjj_xVSzA" target="_blank"><i class="fa fa-youtube" aria-hidden="true" style="color:#fff; font-size:x-large"></i></a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -89,6 +89,7 @@
   <!-- build:js(.) scripts/vendor.js -->
   <!-- bower:js -->
   <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/jquery-ui/jquery-ui.js"></script>
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
   <script src="bower_components/angular-animate/angular-animate.js"></script>

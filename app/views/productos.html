@@ -15,7 +15,23 @@
     </div>
   </div>
   <div class="margin-bottom"></div>
-  <div class="col-xs-12">
+  <form name="formInformacion">
+    <div class="col-xs-12">
+      <div class="col-xs-12">
+        <div class="col-xs-12" style="padding-left:0;">
+          <span style="font-size:20px; font-weight:600; padding-left:0;">Buscar producto <span style="font-size:11px;"> (ej. Lord 36 EC, Herbicida selectivo, Clase lll):</span></span>
+        </div>
+        <div class="input-group col-xs-12">
+          <input type="text" class="form-control" ng-model="filtroNombre" required>
+          <span class="input-group-btn">
+            <button class="btn btn-default" ng-click='formInformacion.$valid ? IsBusqueda() : ""' type="submit">Buscar</button>
+          </span>
+        </div>
+      </div>
+    </div>
+  </form>
+  
+  <div class="col-xs-12" ng-if="!busqueda">
     <div class="col-xs-12" style="text-align:justify; padding-bottom:30px;">
       <h1 class="titulo">Protección</h1>
       <br />
@@ -26,7 +42,7 @@
           <div class="carousel-inner">
             <div class="item active">
               <a ui-sref="productosdetail({id: '{{protecciones.id}}', idcatgoria: '{{protecciones.id_categoria}}', titulo: '{{protecciones.nombre}}'})">
-                <img class="img-responsive" src="{{protecciones.img}}" alt="azul">
+                <img class="img-responsive img" src="{{protecciones.img}}" alt="azul">
                 <div class="carousel-caption">
                   <h3 class="slider-texto1" style="text-transform:uppercase">{{protecciones.nombre}}</h3>
                   <br />
@@ -53,7 +69,7 @@
           <div class="carousel-inner">
             <div class="item active">
               <a ui-sref="productosdetail({id: '{{biosolucion.id}}', idcatgoria: '{{biosolucion.id_categoria}}', titulo: '{{biosolucion.nombre}}'})">
-                <img class="img-responsive" src="{{biosolucion.img}}" alt="azul">
+                <img class="img-responsive img" src="{{biosolucion.img}}" alt="azul">
                 <div class="carousel-caption">
                   <h3 class="slider-texto1" style="text-transform:uppercase">{{biosolucion.nombre}}</h3>
                   <br />
@@ -67,6 +83,95 @@
         </div>
         <br />
       </div>
+    </div>
+  </div>
+
+  <div class="col-xs-12" ng-if="busqueda">
+    <div class="col-xs-12 margin-bottom">
+      <h1 style="text-transform:uppercase;"><a href="" ng-click="IsBack();" style="color:#003366;">Regresar</a> / {{filtroNombre}}</h1>
+    </div>
+    <div class="col-xs-12">
+      <v-accordion id="accordionA" ng-repeat="hacemos in productos | filter:filtroNombre" class="vAccordion--default" control="accordionA" onexpand="expandCallback(index, id)" oncollapse="collapseCallback(index, id)">
+        <v-pane id="pane-{{hacemos.id}}" style="background-color:#003366; color:#fff">
+          <v-pane-header id="pane-{{hacemos.id}}-header" aria-controls="pane-{{hacemos.id}}-content" class="container">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size:large">{{hacemos.nombre}}</span>
+          </v-pane-header>
+
+          <v-pane-content id="pane-{{hacemos.id}}-content" aria-labelledby="pane-{{hacemos.id}}-header">
+            <div class="col-xs-12" style="background-color:white; color:#00000f">
+              <div class="col-xs-12 col-lg-4" style="text-align:justify; padding:20px 30px 20px 30px; vertical-align:middle;">
+                <img class="img-responsive" height="90" src="{{API_PATH_MEDIA}}{{hacemos.image}}" alt="historia">
+              </div>
+              <div class="col-xs-12 col-lg-8" style="text-align:justify; padding:20px 30px 20px 30px">
+                <div class="col-xs-12 col-lg-4" style="padding:10px 0 10px 0">
+                  <span style="font-weight:bold;">Definición:</span>
+                </div>
+                <div class="col-xs-12 col-lg-8" style="padding:10px 0 10px 0">
+                  <span>{{hacemos.definicion}}</span>
+                </div>
+                <div class="col-xs-12 col-lg-4" style="padding:10px 0 10px 0">
+                  <span style="font-weight:bold">No. Registro:</span>
+                </div>
+                <div class="col-xs-12 col-lg-8" style="padding:10px 0 10px 0">
+                  <span>{{hacemos.registro}}</span>
+                </div>
+                <div class="col-xs-12 col-lg-4" style="padding:10px 0 10px 0">
+                  <span style="font-weight:bold">Formulación:</span>
+                </div>
+                <div class="col-xs-12 col-lg-8" style="padding:10px 0 10px 0">
+                  <span>{{hacemos.formulacion}}</span>
+                </div>
+                <div class="col-xs-12 col-lg-4" style="padding:10px 0 10px 0">
+                  <span style="font-weight:bold">Concentración:</span>
+                </div>
+                <div class="col-xs-12 col-lg-8" style="padding:10px 0 10px 0">
+                  <span>{{hacemos.consentracion}}</span>
+                </div>
+                <div class="col-xs-12 col-lg-4" style="padding:10px 0 10px 0">
+                  <span style="font-weight:bold">Ingrediente Activo:</span>
+                </div>
+                <div class="col-xs-12 col-lg-8" style="padding:10px 0 10px 0">
+                  <span>{{hacemos.ingredientes}}</span>
+                </div>
+                <div class="col-xs-12" style="padding:0;">
+                  <div class="col-xs-12 col-lg-4" style="padding:10px 0 10px 0">
+                    <span style="font-weight:bold">Cultivos Registrados:</span>
+                  </div>
+                  <div class="col-xs-12 col-lg-8" style="padding:10px 0 10px 0">
+                    <span>{{hacemos.cultivos}}</span>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-lg-4" style="padding:10px 0 10px 0">
+                  <span style="font-weight:bold">Envases:</span>
+                </div>
+                <div class="col-xs-12 col-lg-8" style="padding:10px 0 10px 0">
+                  <span>{{hacemos.envases}}</span>
+                </div>
+                <div class="col-xs-12 col-lg-4" style="padding:10px 0 10px 0">
+                  <span style="font-weight:bold">Categoría Toxicológica:</span>
+                </div>
+                <div class="col-xs-12 col-lg-8" style="padding:10px 0 10px 0">
+                  <span>{{hacemos.toxitologia}}</span>
+                </div>
+                <div class="col-xs-12 col-lg-4" style="padding:10px 0 10px 0">
+                  <span style="font-weight:bold">Expectro de Control:</span>
+                </div>
+                <div class="col-xs-12 col-lg-8" style="padding:10px 0 10px 0">
+                  <span>{{hacemos.expectro}}</span>
+                </div>
+              </div>
+              <div class="col-xs-12 margin-bottom"><br /><md-divider></md-divider><br /></div>
+              <div class="col-xs-12 text-left">
+                <a href="{{API_PATH_MEDIA}}{{hacemos.etiqueta}}" target="_blank" class="btn btn-lg btn-primary btn-producto margin-bottom">ETIQUETA</a> <span class="hidden-ms hidden-xs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <a href="{{API_PATH_MEDIA}}{{hacemos.hoja}}" target="_blank" class="btn btn-lg btn-primary btn-producto margin-bottom">HOJA DE SEGURIDAD</a><span class="hidden-ms hidden-xs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <a href="{{API_PATH_MEDIA}}{{hacemos.ficha}}" target="_blank" class="btn btn-lg btn-primary btn-producto margin-bottom">FICHA TÉCNICA</a>
+              </div>
+            </div>
+            <br />
+          </v-pane-content>
+        </v-pane>
+        <br />
+      </v-accordion>
     </div>
   </div>
   <div class="margin-bottom"></div>

@@ -61,11 +61,14 @@
                 <div class="col-xs-12 col-lg-8" style="padding:10px 0 10px 0">
                   <span>{{hacemos.ingredientes}}</span>
                 </div>
-                <div class="col-xs-12 col-lg-4" style="padding:10px 0 10px 0">
-                  <span style="font-weight:bold">Cultivos Registrados:</span>
-                </div>
-                <div class="col-xs-12 col-lg-8" style="padding:10px 0 10px 0">
-                  <span>{{hacemos.ingredientes}}</span>
+
+                <div class="col-xs-12" style="padding:0;">
+                  <div class="col-xs-12 col-lg-4" style="padding:10px 0 10px 0">
+                    <span style="font-weight:bold">Cultivos Registrados:</span>
+                  </div>
+                  <div class="col-xs-12 col-lg-8" style="padding:10px 0 10px 0">
+                    <span>{{hacemos.cultivos}}</span>
+                  </div>
                 </div>
                 <div class="col-xs-12 col-lg-4" style="padding:10px 0 10px 0">
                   <span style="font-weight:bold">Envases:</span>
@@ -88,9 +91,9 @@
               </div>
               <div class="col-xs-12 margin-bottom"><br /><md-divider></md-divider><br /></div>
               <div class="col-xs-12 text-left">
-                <a class="btn btn-lg btn-primary btn-producto margin-bottom">ETIQUETA</a> <span class="hidden-ms hidden-xs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                <a class="btn btn-lg btn-primary btn-producto margin-bottom">HOJA DE SEGURIDAD</a><span class="hidden-ms hidden-xs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                <a class="btn btn-lg btn-primary btn-producto margin-bottom">FICHA TÉCNICA</a>
+                <a href="{{API_PATH_MEDIA}}{{hacemos.etiqueta}}" target="_blank" class="btn btn-lg btn-primary btn-producto margin-bottom">ETIQUETA</a> <span class="hidden-ms hidden-xs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <a href="{{API_PATH_MEDIA}}{{hacemos.hoja}}" target="_blank" class="btn btn-lg btn-primary btn-producto margin-bottom">HOJA DE SEGURIDAD</a><span class="hidden-ms hidden-xs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <a href="{{API_PATH_MEDIA}}{{hacemos.ficha}}" target="_blank" class="btn btn-lg btn-primary btn-producto margin-bottom" ng-disabled="true">PROXIMAMENTE<!--FICHA TÉCNICA--></a>
               </div>
             </div>
             <br />            

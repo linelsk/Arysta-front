@@ -27,8 +27,9 @@ angular.module('frontApp')
         });
 
         contenidoFactory.ServiceContenido('catalogos/Producto/', 'GET', {}).then(function (data) {
+            console.log(data.data);
             for (var i = 0; i < data.data.length; i++) {
-                if (data.data[i].subcategoria == $stateParams.id) {
+                if (data.data[i].subcategoria[0] == $stateParams.id) {
                     $scope.productos.push({
                         "id": data.data[i].id,
                         "image": data.data[i].image,
@@ -38,7 +39,7 @@ angular.module('frontApp')
                         "formulacion": data.data[i].formulacion,
                         "consentracion": data.data[i].consentracion,
                         "ingredientes": data.data[i].ingredientes,
-                        //"cultivos": result.data[j].cultivo,
+                        "cultivos": data.data[i].cultivos,
                         "envases": data.data[i].envases,
                         "toxitologia": data.data[i].toxitologia,
                         "expectro": data.data[i].expectro,
@@ -48,14 +49,5 @@ angular.module('frontApp')
                     });
                 }
             }
-            
-            //for (var i = 0; i < data.data.length; i++) {
-            //    for (var j = 0; j < data.data[i].cultivos.length; j++) {
-            //        contenidoFactory.ServiceContenido('catalogos/CultivoUpdate/' + data.data[i].cultivos[j] + '/', 'GET', {}).then(function (result) {
-            //            console.log(result.data);
-            //        });
-            //    }
-            //}
-            console.log($scope.productos);
         });
     }]);
